@@ -12,10 +12,9 @@ jobs:
         - name: Install Cowsay
           run: |
             sudo apt-get install cowsay -y
-            touch lion.txt
           
         - name: Generate ASCII ArtWork
-          run: cowsay -f lion "Run For Cover, I am a LION ....... " >> lion.txt
+          run: cowsay -f lion "Run For Cover, I am a LION ....... " > lion.txt
 
         - name: Test File Exists
           run: grep -i "lion" lion.txt 
