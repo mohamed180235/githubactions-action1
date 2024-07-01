@@ -1,0 +1,25 @@
+name: My First Workflow
+
+on: push
+
+jobs: 
+    first_job:
+        runs-on: ubuntu-latest
+        steps: 
+        - name: Checkout Repo
+          uses: actions/checkout@v4
+        
+        - name: Install Cowsay
+          run: sudo apt-get install cowsay -y
+          
+        - name: Generate ASCII ArtWork
+          run: cowsay -f lion "Run For Cover, I am a LION ....... " >> lion.txt
+
+        - name: Test File Exists
+          run: grep -i "lion" lion.txt 
+
+        - name: Read Files
+          run: cat lion.txt           
+          
+        - name: Checkout Repo Files
+          run: ls -ltra         
